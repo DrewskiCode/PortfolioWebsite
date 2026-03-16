@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eye Tracking System · Project</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: #0b0b0c;
+        color: #ededed;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at 20% 20%, rgba(255, 90, 31, 0.16), transparent 55%),
+          radial-gradient(circle at 80% 30%, rgba(180, 240, 0, 0.12), transparent 55%),
+          #0b0b0c;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        padding: 20px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(11, 11, 12, 0.9);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      header a {
+        color: #b4f000;
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      main {
+        flex: 1;
+        padding: 36px 28px 60px;
+        max-width: 980px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+      }
+
+      h2 {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 32px 0 12px;
+        font-size: 1.1rem;
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: #9ca3af;
+        line-height: 1.6;
+      }
+
+      .eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #b4f000;
+      }
+
+      .panel {
+        background: #15161a;
+        border: 2px solid #2a2c33;
+        padding: 20px;
+        margin-top: 18px;
+      }
+
+      .project-image {
+        margin: 14px 0 0;
+        border: 2px solid #ff5a1f;
+        background: #15161a;
+        padding: 10px;
+        max-width: 520px;
+      }
+
+      .project-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      ul {
+        margin: 8px 0 0 20px;
+        color: #9ca3af;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .pill {
+        border: 1px solid #2a2c33;
+        padding: 8px 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.7rem;
+        color: #ededed;
+        background: #1f2128;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/">← Back to portfolio</a>
+      <span class="eyebrow">Computer Vision</span>
+    </header>
+    <main>
+      <p class="eyebrow">Facial Recognition · CNN + YOLO</p>
+      <h1>Eye Tracking System</h1>
+      <p>
+        Built a facial landmark detection pipeline that highlights faces and the
+        dominant eye, enabling camera autofocus and real-time tracking use cases.
+      </p>
+
+      <div class="panel grid">
+        <div>
+          <h2>Overview</h2>
+          <p>
+            The model detects faces and dominant eyes using WFLW landmarks, then
+            generates bounding boxes with confidence scores for tracking and tagging.
+          </p>
+        </div>
+        <div>
+          <h2>Use Cases</h2>
+          <div class="pill-row">
+            <div class="pill">Mirrorless Camera Autofocus</div>
+            <div class="pill">Human Detection Systems</div>
+            <div class="pill">Facial Tracking</div>
+            <div class="pill">Photo & Video Tagging</div>
+          </div>
+        </div>
+        <div>
+          <h2>Dataset</h2>
+          <p>WFLW (Wider Facial Landmarks in-the-Wild)</p>
+          <ul>
+            <li>10,000 faces</li>
+            <li>98 annotated landmarks</li>
+            <li>Attribute annotations for variation</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Data Prep</h2>
+          <ul>
+            <li>Used edge points to bound faces.</li>
+            <li>Used left/right eye landmarks to bound eyes.</li>
+            <li>Created two classes: face + dominant_eye.</li>
+            <li>Split 80/20 training vs validation.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Models</h2>
+          <ul>
+            <li>YOLO v8 (pretrained, tuned on WFLW).</li>
+            <li>CNN with MobileNetV2 backbone for feature extraction.</li>
+            <li>Bounding box regression with IoU metrics.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Training Highlights</h2>
+          <ul>
+            <li>YOLO Nano: 640px images, 50 epochs, Adam/AdamW.</li>
+            <li>YOLO Medium: 640px images, 23 epochs, SGD.</li>
+            <li>CNN: 224px images, 100 epochs max, Adam optimizer.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Results</h2>
+          <p>
+            YOLO models achieved strong face/eye detection, while the CNN
+            underperformed due to lower-resolution training data.
+          </p>
+          <div class="project-image">
+            <img src="/src/assets/ComVis.png" alt="Eye tracking system visualization" />
+          </div>
+        </div>
+        <div>
+          <h2>Limitations & Next Steps</h2>
+          <ul>
+            <li>Improve CNN with data augmentation and a custom backbone.</li>
+            <li>Reduce YOLO false negatives on dominant eye detection.</li>
+            <li>Continue training to reduce underfitting.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
