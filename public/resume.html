@@ -61,6 +61,29 @@
         background: rgba(21, 22, 26, 0.9);
       }
 
+      .mobile-resume {
+        display: none;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 20px;
+        text-align: center;
+        background: rgba(21, 22, 26, 0.9);
+        gap: 16px;
+      }
+
+      .mobile-resume p {
+        margin: 0;
+        color: #ededed;
+        font-size: 0.95rem;
+      }
+
+      .mobile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
       iframe {
         width: 100%;
         height: 100%;
@@ -87,7 +110,11 @@
 
       @media (max-width: 720px) {
         .frame {
-          height: 80vh;
+          display: none;
+        }
+
+        .mobile-resume {
+          display: grid;
         }
 
         header {
@@ -106,6 +133,13 @@
     <main>
       <div class="frame">
         <iframe src="/resume.pdf" title="Resume PDF" loading="lazy"></iframe>
+      </div>
+      <div class="mobile-resume">
+        <p>View or download the resume PDF for the best mobile experience.</p>
+        <div class="mobile-actions">
+          <a class="download" href="/resume.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+          <a class="download" href="/resume.pdf" download>Download PDF</a>
+        </div>
       </div>
     </main>
   </body>

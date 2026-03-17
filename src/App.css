@@ -392,11 +392,13 @@
   border: 2px solid var(--accent);
   background: linear-gradient(140deg, rgba(255, 90, 31, 0.28), rgba(255, 90, 31, 0.1));
   color: var(--text-h);
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 2.6vw, 1rem);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: none;
   cursor: pointer;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
