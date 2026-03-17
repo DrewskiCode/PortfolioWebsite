@@ -268,7 +268,9 @@ function App() {
         <p className="section-title reveal">Contact</p>
         <div className="contact-card contact-simple reveal">
           <button className="contact-email" type="button" onClick={handleCopyEmail}>
-            {email}
+            andrew.christopher.
+            <span className="mobile-break" aria-hidden="true"></span>
+            floyd@gmail.com
           </button>
           <span className="contact-status" aria-live="polite">
             {copied ? 'Copied to clipboard.' : 'Click to copy'}

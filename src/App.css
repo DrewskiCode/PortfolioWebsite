@@ -420,6 +420,10 @@
   color: var(--accent-2);
 }
 
+.mobile-break {
+  display: none;
+}
+
 .resume-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -705,5 +709,11 @@
 
   .resume-card {
     min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-break {
+    display: block;
   }
 }
