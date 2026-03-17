@@ -69,9 +69,10 @@ function App() {
             <h1 className="hero-name impact-text">Drew Floyd</h1>
           </div>
           <p className="hero-tagline impact-sub">
-            Computer Science major focused on machine learning, computer vision,
-            and technical product development. I build rigorous systems and
-            cinematic digital experiences.
+           Software Engineer with experience in machine learning, computer vision, 
+           and technical product development. Seeking internship or entry-level roles 
+           where I can build real-world software, contribute to impactful projects, 
+           and continue growing as a developer.
           </p>
           <div className="hero-meta">
             <span>Chapman University · GPA 3.87</span>
@@ -90,8 +91,8 @@ function App() {
           <h2>About</h2>
           <p>
             I blend computer science and data analytics with a creative edge.
-            When I’m not building ML pipelines or exploring geospatial systems,
-            you’ll find me on the track, behind the camera shooting photography,
+            When I’m not coding personal projects or building ML pipelines,
+            you’ll find me on the 400 meter track, behind the lens shooting photography,
             or in documentary film mode chasing real-world stories.
           </p>
           <div className="about-frame">
@@ -129,8 +130,8 @@ function App() {
             <p className="project-meta">Analytics</p>
             <h3>Business Analytics Models</h3>
             <p>
-              Designed 10+ predictive models and custom generative systems using
-              TensorFlow.
+              Designed over ten different predictive models for data anlysis 
+              using advanced machine learning techniques.
             </p>
           </article>
           <a
@@ -186,6 +187,9 @@ function App() {
               <div className="skill-pill">Biliterate EN/ES</div>
               <div className="skill-pill">Scholar Athlete</div>
               <div className="skill-pill">Documentary Film</div>
+              <div className="skill-pill">Photography</div>
+              <div className="skill-pill">Horseback Riding</div>
+              <div className="skill-pill">Sprinting</div>
             </div>
           </div>
         </div>
