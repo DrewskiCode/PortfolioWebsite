@@ -716,4 +716,12 @@
   .mobile-break {
     display: block;
   }
+
+  .contact-email {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    letter-spacing: 0.6px;
+    line-height: 1.3;
+  }
 }
