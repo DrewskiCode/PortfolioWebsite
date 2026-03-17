@@ -1,8 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import drewPortrait from './assets/drew.png'
 
 function App() {
+  const email = 'andrew.christopher.floyd@gmail.com'
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 2000)
+    } catch (error) {
+      setCopied(false)
+    }
+  }
+
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReduced) {
@@ -102,6 +115,61 @@ function App() {
         </div>
       </section>
 
+      <section className="section" id="resume">
+        <p className="section-title reveal">Education & Experience</p>
+        <div className="resume-grid">
+          <a
+            className="resume-card resume-link accent-edu reveal"
+            style={{ '--delay': '0ms' }}
+            href="https://www.chapman.edu/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="resume-summary">
+              <div className="resume-eyebrow">Education</div>
+              <h3>Chapman University</h3>
+              <p className="resume-role">B.S. Computer Science</p>
+              <p className="resume-meta">
+                Minor in Business Analytics & Documentary Film · GPA 3.87 · 2022–Present
+              </p>
+            </div>
+          </a>
+          <a
+            className="resume-card resume-link accent-work reveal"
+            style={{ '--delay': '120ms' }}
+            href="https://seescan.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="resume-summary">
+              <div className="resume-eyebrow">Experience</div>
+              <h3>SeeScan</h3>
+              <p className="resume-role">Software Engineering Intern</p>
+              <p className="resume-meta">
+                Refactored geospatial map tiling services and shipped CI/CD pipelines
+                and internal tooling.
+              </p>
+            </div>
+          </a>
+          <a
+            className="resume-card resume-link accent-work reveal"
+            style={{ '--delay': '240ms' }}
+            href="https://www.instagram.com/chapmanxctf/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="resume-summary">
+              <div className="resume-eyebrow">Experience</div>
+              <h3>Chapman Athletics</h3>
+              <p className="resume-role">Track & Field Student Assistant</p>
+              <p className="resume-meta">
+                Photographer and videographer for multiple NCAA Division III teams.
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+
       <section className="section" id="projects">
         <p className="section-title reveal">Selected Projects</p>
         <div className="projects-grid">
@@ -196,77 +264,15 @@ function App() {
         </div>
       </section>
 
-      <section className="section" id="resume">
-        <p className="section-title reveal">Education & Experience</p>
-        <div className="resume-grid">
-          <a
-            className="resume-card resume-link accent-edu reveal"
-            style={{ '--delay': '0ms' }}
-            href="https://www.chapman.edu/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="resume-summary">
-              <div className="resume-eyebrow">Education</div>
-              <h3>Chapman University</h3>
-              <p className="resume-role">B.S. Computer Science</p>
-              <p className="resume-meta">
-                Minor in Business Analytics & Documentary Film · GPA 3.87 · 2022–Present
-              </p>
-            </div>
-          </a>
-          <a
-            className="resume-card resume-link accent-work reveal"
-            style={{ '--delay': '120ms' }}
-            href="https://seescan.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="resume-summary">
-              <div className="resume-eyebrow">Experience</div>
-              <h3>SeeScan</h3>
-              <p className="resume-role">Software Engineering Intern</p>
-              <p className="resume-meta">
-                Refactored geospatial map tiling services and shipped CI/CD pipelines
-                and internal tooling.
-              </p>
-            </div>
-          </a>
-          <a
-            className="resume-card resume-link accent-work reveal"
-            style={{ '--delay': '240ms' }}
-            href="https://www.instagram.com/chapmanxctf/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="resume-summary">
-              <div className="resume-eyebrow">Experience</div>
-              <h3>Chapman Athletics</h3>
-              <p className="resume-role">Track & Field Student Assistant</p>
-              <p className="resume-meta">
-                Photographer and videographer for multiple NCAA Division III teams.
-              </p>
-            </div>
-          </a>
-        </div>
-      </section>
-
       <section className="section" id="contact">
         <p className="section-title reveal">Contact</p>
-        <div className="contact-card reveal">
-          <h2>Let’s Build</h2>
-          <p>
-            Open to software engineering, ML engineering, computer vision, data
-            science, and technical product roles.
-          </p>
-          <div className="contact-actions">
-            <a className="button" href="mailto:andrew.christopher.floyd@gmail.com">
-              Email
-            </a>
-            <a className="button secondary" href="tel:+18586689723">
-              Call
-            </a>
-          </div>
+        <div className="contact-card contact-simple reveal">
+          <button className="contact-email" type="button" onClick={handleCopyEmail}>
+            {email}
+          </button>
+          <span className="contact-status" aria-live="polite">
+            {copied ? 'Copied to clipboard.' : 'Click to copy'}
+          </span>
         </div>
       </section>
 
