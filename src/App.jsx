@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import './App.css'
+import drewPortrait from './assets/drew.png'
 
 function App() {
   useEffect(() => {
@@ -96,7 +97,7 @@ function App() {
             or in documentary film mode chasing real-world stories.
           </p>
           <div className="about-frame">
-            <img src="/src/assets/drew.png" alt="Drew Floyd portrait" />
+            <img src={drewPortrait} alt="Drew Floyd portrait" />
           </div>
         </div>
       </section>
